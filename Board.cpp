@@ -173,7 +173,7 @@ const std::string Board::draw(int n) {
 
     tm_info = localtime(&tv.tv_sec);
 
-    strftime(buffer, 80, "%Y:%m:%d %H:%M:%S", tm_info);
+    strftime(buffer, 80, "%d-%m-%Y-%I:%M:%S", tm_info);
 
     std::string str(buffer);
     std::string str_mil = std::to_string(millisec);
