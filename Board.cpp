@@ -151,33 +151,33 @@ Board &Board::operator=(const Board &other) {
 }
 const std::string Board::draw(int n) {
     //Credit To Bar-Zamsky & Shahar
-    time_t name;
-    struct tm* timeinfo;
-    char buffer[80];
-    time(&name);
-    timeinfo = localtime(&name);
-    strftime(buffer,sizeof(buffer),"%d-%m-%Y-%I:%M:%S",timeinfo);
-
+//    time_t name;
+//    struct tm* timeinfo;
 //    char buffer[80];
-//    int millisec;
-//    struct tm* tm_info;
-//    struct timeval tv;
-//
-//    gettimeofday(&tv, NULL);
-//
-//    millisec = lrint(tv.tv_usec/1000.0); // Round to nearest millisec
-//    if (millisec>=1000) { // Allow for rounding up to nearest second
-//        millisec -=1000;
-//        tv.tv_sec++;
-//    }
-//
-//    tm_info = localtime(&tv.tv_sec);
-//
-//    strftime(buffer, 80, "%Y:%m:%d %H:%M:%S", tm_info);
+//    time(&name);
+//    timeinfo = localtime(&name);
+//    strftime(buffer,sizeof(buffer),"%d-%m-%Y-%I:%M:%S",timeinfo);
+
+    char buffer[80];
+    int millisec;
+    struct tm* tm_info;
+    struct timeval tv;
+
+    gettimeofday(&tv, NULL);
+
+    millisec = lrint(tv.tv_usec/1000.0); // Round to nearest millisec
+    if (millisec>=1000) { // Allow for rounding up to nearest second
+        millisec -=1000;
+        tv.tv_sec++;
+    }
+
+    tm_info = localtime(&tv.tv_sec);
+
+    strftime(buffer, 80, "%Y:%m:%d %H:%M:%S", tm_info);
 
     std::string str(buffer);
-//    std::string str_mil = std::to_string(millisec);
-    std::string fileName= "pic:"+str+".ppm";
+    std::string str_mil = std::to_string(millisec);
+    std::string fileName= "pic:"+str+str_mil+".ppm";
     // - end -
 
     const int dimx = n, dimy = n;
