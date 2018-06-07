@@ -186,26 +186,26 @@ const std::string Board::draw(int n) {
     RGB image[dimx][dimy];
 
     //Make The background
-    for(int i =0 ; i < dimx ; ++i){
-        for(int j = i ; j < dimy ; ++j){
-            image[i][j]={255,229,204};
-        }
-    }
-    for(int j =0 ; j < dimx ; ++j){
-        for(int i = j ; i < dimy ; ++i){
-            image[i][j]={255,255,204};
-        }
-    }
+//     for(int i =0 ; i < dimx ; ++i){
+//         for(int j = i ; j < dimy ; ++j){
+//             image[i][j]={255,229,204};
+//         }
+//     }
+//     for(int j =0 ; j < dimx ; ++j){
+//         for(int i = j ; i < dimy ; ++i){
+//             image[i][j]={255,255,204};
+//         }
+//     }
     // Make the Grid
-    int cell_size = n/size();
-    for(int i = cell_size ; i < n ; i+=cell_size){
-        for(int j =0 ; j < n ; ++j){
-            image[i][j] = {0,0,0};
-//            image[i+1][j+1] = {0,0,0};
-            image[j][i] = {0,0,0};
-//            image[j+1][i+1] = {0,0,0};
-        }
-    }
+//     int cell_size = n/size();
+//     for(int i = cell_size ; i < n ; i+=cell_size){
+//         for(int j =0 ; j < n ; ++j){
+//             image[i][j] = {0,0,0};
+// //            image[i+1][j+1] = {0,0,0};
+//             image[j][i] = {0,0,0};
+// //            image[j+1][i+1] = {0,0,0};
+//         }
+//     }
 
     //Insert 'X' 'O' '.'
     for (int i = 0; i < size() ; ++i) {
