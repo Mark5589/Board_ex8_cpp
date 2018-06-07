@@ -201,9 +201,9 @@ const std::string Board::draw(int n) {
     for(int i = cell_size ; i < n ; i+=cell_size){
         for(int j =0 ; j < n ; ++j){
             image[i][j] = {0,0,0};
-            image[i+1][j+1] = {0,0,0};
+//            image[i+1][j+1] = {0,0,0};
             image[j][i] = {0,0,0};
-            image[j+1][i+1] = {0,0,0};
+//            image[j+1][i+1] = {0,0,0};
         }
     }
 
