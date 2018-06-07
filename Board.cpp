@@ -214,26 +214,26 @@ const std::string Board::draw(int n) {
             int border_s_i = cell_size*i ;
             int border_s_j = cell_size*j ;
 
-            if(c == 'X'){
-                int idx  =0 ; // mirror reflection to Draw 'X'
-                int i_start, j_start, i_end, j_end;
-                i_start = border_s_i + 20;
-                j_start = border_s_j + 20;
+//            if(c == 'X'){
+//                int idx  =0 ; // mirror reflection to Draw 'X'
+//                int i_start, j_start, i_end, j_end;
+//                i_start = border_s_i + 20;
+//                j_start = border_s_j + 20;
+//
+//                i_end = border_s_i + cell_size - 20;
+//                j_end = border_s_j + cell_size - 20;
+//                for (int k = i_start , kj = j_start; k < i_end && j_end ; ++k ,++kj) {
+////                    int tmp1 = border_s_j+idx;
+////                    int tmp2 = border_s_j+cell_size - 1- idx;
+////                    if(tmp1 >= n  || tmp2 >= n) break;
+//
+//                    image[k][kj] = {255,0,0};
+//                    image[k][j_end - idx] = {255,0,0};
+//                    ++idx;
+//                }
+//            }
 
-                i_end = border_s_i + cell_size - 20;
-                j_end = border_s_j + cell_size - 20;
-                for (int k = i_start , kj = j_start; k < i_end && j_end ; ++k ,++kj) {
-//                    int tmp1 = border_s_j+idx;
-//                    int tmp2 = border_s_j+cell_size - 1- idx;
-//                    if(tmp1 >= n  || tmp2 >= n) break;
-
-                    image[k][kj] = {255,0,0};
-                    image[k][j_end - idx] = {255,0,0};
-                    ++idx;
-                }
-            }
-
-            else if (c == 'O'){
+             if (c == 'O'){
                // finding the center of the border
                 int center_i = border_s_i + (cell_size/2);
                 int center_j = (border_s_j) + (cell_size/2) ;
