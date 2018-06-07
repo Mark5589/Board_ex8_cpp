@@ -233,25 +233,25 @@ const std::string Board::draw(int n) {
 //                }
 //            }
 
-             if (c == 'O'){
-               // finding the center of the border
-                int center_i = border_s_i + (cell_size/2);
-                int center_j = (border_s_j) + (cell_size/2) ;
-                double radius = (cell_size/2) -10;
-                double radius_sqr = sqrt(radius);
+//              if (c == 'O'){
+//                // finding the center of the border
+//                 int center_i = border_s_i + (cell_size/2);
+//                 int center_j = (border_s_j) + (cell_size/2) ;
+//                 double radius = (cell_size/2) -10;
+//                 double radius_sqr = sqrt(radius);
 
-//                image[center_i][center_j] = {0,0,0};
+// //                image[center_i][center_j] = {0,0,0};
 
-                for (int ik = border_s_i + 10; ik < border_s_i + cell_size - 10; ++ik) {
-                    for (int jl = border_s_j + 10; jl < border_s_j + cell_size- 10; ++jl) {
-                        double calc_radius = pow((center_i - ik), 2) + pow((center_j - jl),2);
-                        calc_radius = sqrt(calc_radius);
-                        if(calc_radius == radius || (calc_radius < radius && calc_radius > radius -radius_sqr)){
-                            image[ik][jl] = {255,0,0};
-                        }
-                    }
-                }
-            }
+//                 for (int ik = border_s_i + 10; ik < border_s_i + cell_size - 10; ++ik) {
+//                     for (int jl = border_s_j + 10; jl < border_s_j + cell_size- 10; ++jl) {
+//                         double calc_radius = pow((center_i - ik), 2) + pow((center_j - jl),2);
+//                         calc_radius = sqrt(calc_radius);
+//                         if(calc_radius == radius || (calc_radius < radius && calc_radius > radius -radius_sqr)){
+//                             image[ik][jl] = {255,0,0};
+//                         }
+//                     }
+//                 }
+//             }
 
 
 //            else continue; // '.' just dont do nothing
