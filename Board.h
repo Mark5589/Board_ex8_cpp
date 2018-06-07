@@ -14,6 +14,7 @@
 #include <fstream>
 #include <cmath>
 #include <ctime>
+#include <sys/time.h>
 
 
 struct Coordinate{
