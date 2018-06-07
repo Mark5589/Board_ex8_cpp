@@ -197,7 +197,7 @@ const std::string Board::draw(int n) {
 //         }
 //     }
     // Make the Grid
-//     int cell_size = n/size();
+    int cell_size = n/size();
 //     for(int i = cell_size ; i < n ; i+=cell_size){
 //         for(int j =0 ; j < n ; ++j){
 //             image[i][j] = {0,0,0};
