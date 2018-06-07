@@ -151,33 +151,33 @@ Board &Board::operator=(const Board &other) {
 }
 const std::string Board::draw(int n) {
     //Credit To Bar-Zamsky & Shahar
-//    time_t name;
-//    struct tm* timeinfo;
-//    char buffer[80];
-//    time(&name);
-//    timeinfo = localtime(&name);
-//    strftime(buffer,sizeof(buffer),"%d-%m-%Y-%I:%M:%S",timeinfo);
-
+    time_t name;
+    struct tm* timeinfo;
     char buffer[80];
-    int millisec;
-    struct tm* tm_info;
-    struct timeval tv;
+    time(&name);
+    timeinfo = localtime(&name);
+    strftime(buffer,sizeof(buffer),"%d-%m-%Y-%I:%M:%S",timeinfo);
 
-    gettimeofday(&tv, NULL);
-
-    millisec = lrint(tv.tv_usec/1000.0); // Round to nearest millisec
-    if (millisec>=1000) { // Allow for rounding up to nearest second
-        millisec -=1000;
-        tv.tv_sec++;
-    }
-
-    tm_info = localtime(&tv.tv_sec);
-
-    strftime(buffer, 80, "%Y:%m:%d %H:%M:%S", tm_info);
+//    char buffer[80];
+//    int millisec;
+//    struct tm* tm_info;
+//    struct timeval tv;
+//
+//    gettimeofday(&tv, NULL);
+//
+//    millisec = lrint(tv.tv_usec/1000.0); // Round to nearest millisec
+//    if (millisec>=1000) { // Allow for rounding up to nearest second
+//        millisec -=1000;
+//        tv.tv_sec++;
+//    }
+//
+//    tm_info = localtime(&tv.tv_sec);
+//
+//    strftime(buffer, 80, "%Y:%m:%d %H:%M:%S", tm_info);
 
     std::string str(buffer);
-    std::string str_mil = std::to_string(millisec);
-    std::string fileName= "pic:"+str+":"+str_mil+".ppm";
+//    std::string str_mil = std::to_string(millisec);
+    std::string fileName= "pic:"+str+".ppm";
     // - end -
 
     const int dimx = n, dimy = n;
@@ -220,13 +220,15 @@ const std::string Board::draw(int n) {
                 i_start = border_s_i + 20;
                 j_start = border_s_j + 20;
 
-                for (int k = border_s_i; k < border_s_i + cell_size -1 ; ++k) {
-                    int tmp1 = border_s_j+idx;
-                    int tmp2 = border_s_j+cell_size - 1- idx;
-                    if(tmp1 >= n  || tmp2 >= n) break;
+                i_end = border_s_i + cell_size - 20;
+                j_end = border_s_j + cell_size - 20;
+                for (int k = i_start , kj = j_start; k < i_end && j_end ; ++k ,++kj) {
+//                    int tmp1 = border_s_j+idx;
+//                    int tmp2 = border_s_j+cell_size - 1- idx;
+//                    if(tmp1 >= n  || tmp2 >= n) break;
 
-                    image[k][border_s_j+idx] = {255,0,0};
-                    image[k][border_s_j+cell_size - 1- idx] = {255,0,0};
+                    image[k][kj] = {255,0,0};
+                    image[k][j_end - idx] = {255,0,0};
                     ++idx;
                 }
             }
