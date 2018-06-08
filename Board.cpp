@@ -186,26 +186,24 @@ const std::string Board::draw(int n) {
     RGB image[dimx][dimy];
 
     //Make The background
-//     for(int i =0 ; i < dimx ; ++i){
-//         for(int j = i ; j < dimy ; ++j){
-//             image[i][j]={255,229,204};
-//         }
-//     }
-//     for(int j =0 ; j < dimx ; ++j){
-//         for(int i = j ; i < dimy ; ++i){
-//             image[i][j]={255,255,204};
-//         }
-//     }
+    for(int i =0 ; i < dimx ; ++i){
+        for(int j = i ; j < dimy ; ++j){
+            image[i][j]={255,229,204};
+        }
+    }
+    for(int j =0 ; j < dimx ; ++j){
+        for(int i = j ; i < dimy ; ++i){
+            image[i][j]={255,255,204};
+        }
+    }
     // Make the Grid
     int cell_size = n/size();
-//     for(int i = cell_size ; i < n ; i+=cell_size){
-//         for(int j =0 ; j < n ; ++j){
-//             image[i][j] = {0,0,0};
-// //            image[i+1][j+1] = {0,0,0};
-//             image[j][i] = {0,0,0};
-// //            image[j+1][i+1] = {0,0,0};
-//         }
-//     }
+    for(int i = cell_size ; i < n ; i+=cell_size){
+        for(int j =0 ; j < n ; ++j){
+            image[i][j] = {0,0,0};
+            image[j][i] = {0,0,0};
+        }
+    }
 
     //Insert 'X' 'O' '.'
     for (int i = 0; i < size() ; ++i) {
@@ -214,44 +212,40 @@ const std::string Board::draw(int n) {
             int border_s_i = cell_size*i ;
             int border_s_j = cell_size*j ;
 
-//            if(c == 'X'){
-//                int idx  =0 ; // mirror reflection to Draw 'X'
-//                int i_start, j_start, i_end, j_end;
-//                i_start = border_s_i + 20;
-//                j_start = border_s_j + 20;
-//
-//                i_end = border_s_i + cell_size - 20;
-//                j_end = border_s_j + cell_size - 20;
-//                for (int k = i_start , kj = j_start; k < i_end && j_end ; ++k ,++kj) {
-////                    int tmp1 = border_s_j+idx;
-////                    int tmp2 = border_s_j+cell_size - 1- idx;
-////                    if(tmp1 >= n  || tmp2 >= n) break;
-//
-//                    image[k][kj] = {255,0,0};
-//                    image[k][j_end - idx] = {255,0,0};
-//                    ++idx;
-//                }
-//            }
+           if(c == 'X'){
+               int idx  =0 ; // mirror reflection to Draw 'X'
+               int i_start, j_start, i_end, j_end;
+               i_start = border_s_i + 20;
+               j_start = border_s_j + 20;
 
-//              if (c == 'O'){
-//                // finding the center of the border
-//                 int center_i = border_s_i + (cell_size/2);
-//                 int center_j = (border_s_j) + (cell_size/2) ;
-//                 double radius = (cell_size/2) -10;
-//                 double radius_sqr = sqrt(radius);
+               i_end = border_s_i + cell_size - 20;
+               j_end = border_s_j + cell_size - 20;
+               for (int k = i_start , kj = j_start; k < i_end && j_end ; ++k ,++kj) {
+                   image[k][kj] = {255,0,0};
+                   image[k][j_end - idx] = {255,0,0};
+                   ++idx;
+               }
+           }
+
+             if (c == 'O'){
+               // finding the center of the border
+                int center_i = border_s_i + (cell_size/2);
+                int center_j = (border_s_j) + (cell_size/2) ;
+                double radius = (cell_size/2) -10;
+                double radius_sqr = sqrt(radius);
 
 // //                image[center_i][center_j] = {0,0,0};
 
-//                 for (int ik = border_s_i + 10; ik < border_s_i + cell_size - 10; ++ik) {
-//                     for (int jl = border_s_j + 10; jl < border_s_j + cell_size- 10; ++jl) {
-//                         double calc_radius = pow((center_i - ik), 2) + pow((center_j - jl),2);
-//                         calc_radius = sqrt(calc_radius);
-//                         if(calc_radius == radius || (calc_radius < radius && calc_radius > radius -radius_sqr)){
-//                             image[ik][jl] = {255,0,0};
-//                         }
-//                     }
-//                 }
-//             }
+                for (int ik = border_s_i + 10; ik < border_s_i + cell_size - 10; ++ik) {
+                    for (int jl = border_s_j + 10; jl < border_s_j + cell_size- 10; ++jl) {
+                        double calc_radius = pow((center_i - ik), 2) + pow((center_j - jl),2);
+                        calc_radius = sqrt(calc_radius);
+                        if(calc_radius == radius || (calc_radius < radius && calc_radius > radius -radius_sqr)){
+                            image[ik][jl] = {255,0,0};
+                        }
+                    }
+                }
+            }
 
 
 //            else continue; // '.' just dont do nothing
