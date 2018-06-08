@@ -1,0 +1,183 @@
+ubuntu02@ubuntu-desk:~/Desktop/code_tst/board3/Board_ex8_cpp$ valgrind --leak-check=full -v ./a.out < board6.txt 
+==2170== Memcheck, a memory error detector
+==2170== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2170== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2170== Command: ./a.out
+==2170== 
+--2170-- Valgrind options:
+--2170--    --leak-check=full
+--2170--    -v
+--2170-- Contents of /proc/version:
+--2170--   Linux version 4.15.0-22-generic (buildd@lgw01-amd64-013) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #24-Ubuntu SMP Wed May 16 12:15:17 UTC 2018
+--2170-- 
+--2170-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2
+--2170-- Page sizes: currently 4096, max supported 4096
+--2170-- Valgrind library directory: /usr/lib/valgrind
+--2170-- Reading syms from /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out
+--2170-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--2170--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--2170--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--2170--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--2170--   .. CRC is valid
+--2170-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--2170--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--2170--   .. CRC mismatch (computed 62965bbf wanted eeb84137)
+--2170--    object doesn't have a symbol table
+--2170--    object doesn't have a dynamic symbol table
+--2170-- Scheduler: using generic scheduler lock implementation.
+--2170-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==2170== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-2170-by-ubuntu02-on-???
+==2170== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-2170-by-ubuntu02-on-???
+==2170== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-2170-by-ubuntu02-on-???
+==2170== 
+==2170== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==2170== don't want to do, unless you know exactly what you're doing,
+==2170== or are doing some strange experiment):
+==2170==   /usr/lib/valgrind/../../bin/vgdb --pid=2170 ...command...
+==2170== 
+==2170== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==2170==   /path/to/gdb ./a.out
+==2170== and then give GDB the following command
+==2170==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=2170
+==2170== --pid is optional if only one valgrind process is running
+==2170== 
+--2170-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--2170-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--2170-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--2170--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--2170--   .. CRC mismatch (computed 13d5e98a wanted 1786ecf1)
+--2170--    object doesn't have a symbol table
+--2170-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--2170--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--2170--   .. CRC mismatch (computed 8f77ef36 wanted fcbde737)
+--2170--    object doesn't have a symbol table
+==2170== WARNING: new redirection conflicts with existing -- ignoring it
+--2170--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--2170--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--2170-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--2170-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--2170-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+--2170--    object doesn't have a symbol table
+--2170-- Reading syms from /lib/x86_64-linux-gnu/libm-2.27.so
+--2170--   Considering /lib/x86_64-linux-gnu/libm-2.27.so ..
+--2170--   .. CRC mismatch (computed 7feae033 wanted b29b2508)
+--2170--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.27.so ..
+--2170--   .. CRC is valid
+--2170-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--2170--    object doesn't have a symbol table
+--2170-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--2170--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--2170--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--2170--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--2170--   .. CRC is valid
+--2170-- REDIR: 0x581ec70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581dd40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581ef50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581d790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581dd70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x58207c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581ede0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581ec10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581dd00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581d800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581ed40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x583c0f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581dca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581d870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581efa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581d840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581f0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581dda0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581d7c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581dc70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x58286c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581eff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581ebe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x583ceb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581e050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581ef20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581eef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x58207f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x581f040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--2170-- REDIR: 0x590e3c0 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
+--2170-- REDIR: 0x5817070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--2170-- REDIR: 0x590e590 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
+--2170-- REDIR: 0x590aba0 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4c35e00 (bcmp)
+--2170-- REDIR: 0x58e9d60 (libc.so.6:__strcmp_ssse3) redirected to 0x4c33da0 (strcmp)
+--2170-- REDIR: 0x4ecf5f0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4c30830 (operator new[](unsigned long))
+==2170== Conditional jump or move depends on uninitialised value(s)
+==2170==    at 0x403217: Board::operator=(Board const&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x402FB7: operator>>(std::istream&, Board&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x4065BA: main (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170== 
+==2170== Conditional jump or move depends on uninitialised value(s)
+==2170==    at 0x403244: Board::operator=(Board const&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x402FB7: operator>>(std::istream&, Board&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x4065BA: main (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170== 
+==2170== Conditional jump or move depends on uninitialised value(s)
+==2170==    at 0x403265: Board::operator=(Board const&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x402FB7: operator>>(std::istream&, Board&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x4065BA: main (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170== 
+==2170== Conditional jump or move depends on uninitialised value(s)
+==2170==    at 0x4032B8: Board::operator=(Board const&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x402FB7: operator>>(std::istream&, Board&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x4065BA: main (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170== 
+--2170-- REDIR: 0x4ecd5d0 (libstdc++.so.6:operator delete[](void*)) redirected to 0x4c316d0 (operator delete[](void*))
+--2170-- REDIR: 0x590eab0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
+X....O
+.X..O.
+..XO..
+..OX..
+.O..X.
+O....X
+
+--2170-- REDIR: 0x5817950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+--2170-- REDIR: 0x590ead0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c366e0 (memmove)
+--2170-- REDIR: 0x581e590 (libc.so.6:__GI_strstr) redirected to 0x4c37760 (__strstr_sse2)
+--2170-- REDIR: 0x590ef50 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4c365d0 (memset)
+--2170-- REDIR: 0x4ecf530 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c30110 (operator new(unsigned long))
+--2170-- REDIR: 0x590e1d0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
+--2170-- REDIR: 0x4ecd5a0 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c311d0 (operator delete(void*))
+pic:08-06-2018-10:16:03268.ppm
+==2170== 
+==2170== HEAP SUMMARY:
+==2170==     in use at exit: 0 bytes in 0 blocks
+==2170==   total heap usage: 30 allocs, 30 frees, 92,994 bytes allocated
+==2170== 
+==2170== All heap blocks were freed -- no leaks are possible
+==2170== 
+==2170== Use --track-origins=yes to see where uninitialised values come from
+==2170== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
+==2170== 
+==2170== 1 errors in context 1 of 4:
+==2170== Conditional jump or move depends on uninitialised value(s)
+==2170==    at 0x4032B8: Board::operator=(Board const&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x402FB7: operator>>(std::istream&, Board&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x4065BA: main (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170== 
+==2170== 
+==2170== 1 errors in context 2 of 4:
+==2170== Conditional jump or move depends on uninitialised value(s)
+==2170==    at 0x403265: Board::operator=(Board const&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x402FB7: operator>>(std::istream&, Board&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x4065BA: main (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170== 
+==2170== 
+==2170== 1 errors in context 3 of 4:
+==2170== Conditional jump or move depends on uninitialised value(s)
+==2170==    at 0x403244: Board::operator=(Board const&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x402FB7: operator>>(std::istream&, Board&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x4065BA: main (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170== 
+==2170== 
+==2170== 1 errors in context 4 of 4:
+==2170== Conditional jump or move depends on uninitialised value(s)
+==2170==    at 0x403217: Board::operator=(Board const&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x402FB7: operator>>(std::istream&, Board&) (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170==    by 0x4065BA: main (in /home/ubuntu02/Desktop/code_tst/board3/Board_ex8_cpp/a.out)
+==2170== 
+==2170== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
+
